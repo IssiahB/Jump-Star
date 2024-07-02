@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://baywe3bxhmkd7"]
+
+[ext_resource type="Theme" uid="uid://bpe430amxwmat" path="res://themes/Game_Theme.tres" id="1_s0tty"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_sycag"]
+[ext_resource type="Texture2D" uid="uid://cpo0eow7nw2de" path="res://assets/graphics/pickups/single_coin.png" id="3_4kkw4"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_sycag")
+
+[node name="Health" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(300, 100)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_bottom = 100.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Health"]
+custom_minimum_size = Vector2(100, 70)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HealthLabel" type="Label" parent="Health/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_s0tty")
+text = "Health"
+horizontal_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="Health/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme = ExtResource("1_s0tty")
+rounded = true
+show_percentage = false
+
+[node name="Coins" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(200, 100)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Coins"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CoinImage" type="TextureRect" parent="Coins/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_4kkw4")
+expand_mode = 2
+
+[node name="CoinCount" type="Label" parent="Coins/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_s0tty")
+text = "0"
+horizontal_alignment = 1

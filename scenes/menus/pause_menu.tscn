@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnf0x8t7m8xvu"]
+
+[ext_resource type="Script" path="res://scripts/menus/pause_menu.gd" id="1_h1kq5"]
+[ext_resource type="Theme" uid="uid://bpe430amxwmat" path="res://themes/Game_Theme.tres" id="1_k2v3k"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_h1kq5")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="PauseTitle" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_k2v3k")
+theme_override_font_sizes/font_size = 60
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="ResumeBtn" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_k2v3k")
+text = "Resume"
+
+[node name="StoreBtn" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_k2v3k")
+text = "Store"
+
+[node name="MainMenuBtn" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_k2v3k")
+text = "Main Menu"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/StoreBtn" to="." method="_on_store_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]

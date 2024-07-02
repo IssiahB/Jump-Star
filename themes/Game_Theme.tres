@@ -1,0 +1,61 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bpe430amxwmat"]
+
+[ext_resource type="FontFile" uid="uid://dpojuqbev7poj" path="res://assets/fonts/Exo-SemiBold.otf" id="1_r0myf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eysjg"]
+bg_color = Color(0.397815, 0.345083, 0.164574, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wss62"]
+content_margin_left = 80.0
+content_margin_top = 20.0
+content_margin_right = 80.0
+content_margin_bottom = 20.0
+bg_color = Color(0.529941, 0.462649, 0.235848, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1okg2"]
+bg_color = Color(0.335266, 0.301978, 0.118424, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dyyt8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88hpt"]
+bg_color = Color(0.654902, 0.607843, 0.262745, 0.65098)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig5qq"]
+bg_color = Color(0.637855, 0.0562147, 0.394728, 1)
+
+[resource]
+default_font = ExtResource("1_r0myf")
+default_font_size = 25
+Button/styles/hover = SubResource("StyleBoxFlat_eysjg")
+Button/styles/normal = SubResource("StyleBoxFlat_wss62")
+Button/styles/pressed = SubResource("StyleBoxFlat_1okg2")
+Label/colors/font_color = Color(0.921412, 0.881476, 0.359519, 1)
+Label/font_sizes/font_size = 30
+Label/styles/normal = SubResource("StyleBoxEmpty_dyyt8")
+Panel/styles/panel = SubResource("StyleBoxFlat_88hpt")
+ProgressBar/font_sizes/font_size = 16
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ig5qq")

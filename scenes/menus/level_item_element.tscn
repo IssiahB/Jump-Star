@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://u17jfkm5h2w7"]
+
+[ext_resource type="Script" path="res://scripts/menus/level_item_element.gd" id="1_dgid6"]
+[ext_resource type="Theme" uid="uid://bpe430amxwmat" path="res://themes/Game_Theme.tres" id="1_qpi04"]
+[ext_resource type="Texture2D" uid="uid://i0u0jpfofexh" path="res://assets/graphics/UI/unlocked_Lock.png" id="2_li4en"]
+
+[node name="LevelItem" type="Panel"]
+custom_minimum_size = Vector2(200, 100)
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_qpi04")
+script = ExtResource("1_dgid6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="LevelTitle" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_qpi04")
+text = "Level 1"
+
+[node name="StatusImg" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_li4en")
+expand_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

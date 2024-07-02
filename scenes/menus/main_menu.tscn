@@ -1,0 +1,97 @@
+[gd_scene load_steps=5 format=3 uid="uid://citpj2ytuk63q"]
+
+[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_sv8dg"]
+[ext_resource type="Texture2D" uid="uid://8xylm6xp7xpk" path="res://assets/graphics/backgrounds/rock.png" id="1_vnwn1"]
+[ext_resource type="Theme" uid="uid://bpe430amxwmat" path="res://themes/Game_Theme.tres" id="2_a7s6h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xevs"]
+bg_color = Color(0.666667, 0.607843, 0.223529, 0.745098)
+corner_radius_top_left = 155
+corner_radius_top_right = 120
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sv8dg")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vnwn1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.5
+offset_top = -215.0
+offset_right = 200.5
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 90
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_a7s6h")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_5xevs")
+text = "Jump  Star"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_a7s6h")
+text = "Play"
+
+[node name="StoreBtn" type="Button" parent="VBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_a7s6h")
+text = "Store"
+
+[node name="SettingsBtn" type="Button" parent="VBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_a7s6h")
+text = "Settings
+"
+
+[node name="QuitBtn" type="Button" parent="VBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_a7s6h")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Buttons/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/QuitBtn" to="." method="_on_quit_btn_pressed"]

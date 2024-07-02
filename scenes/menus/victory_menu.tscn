@@ -1,0 +1,147 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3tobuscqivxh"]
+
+[ext_resource type="Script" path="res://scripts/menus/victory_menu.gd" id="1_oo3nt"]
+[ext_resource type="Texture2D" uid="uid://dv83mvny1nwpl" path="res://assets/graphics/backgrounds/background0.png" id="1_uo3f6"]
+[ext_resource type="Theme" uid="uid://bpe430amxwmat" path="res://themes/Game_Theme.tres" id="2_4dte0"]
+[ext_resource type="Texture2D" uid="uid://cpo0eow7nw2de" path="res://assets/graphics/pickups/single_coin.png" id="3_fs14c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5cw5"]
+atlas = ExtResource("1_uo3f6")
+region = Rect2(9.91183, -10.6517, 1910.09, 1090.65)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kw3fv"]
+content_margin_left = 80.0
+content_margin_top = 20.0
+content_margin_right = 80.0
+content_margin_bottom = 20.0
+bg_color = Color(0.193113, 0.530787, 0.473981, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77hbp"]
+bg_color = Color(0.161989, 0.461502, 0.41286, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irg1d"]
+bg_color = Color(0.0818824, 0.273968, 0.242878, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="VictoryMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oo3nt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_k5cw5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_4dte0")
+theme_override_colors/font_color = Color(0.342371, 0.577342, 0.678915, 1)
+theme_override_font_sizes/font_size = 111
+text = "Victory!"
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("2_4dte0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -27.5
+offset_right = 50.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="CoinCount" type="Label" parent="VBoxContainer/Panel/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_4dte0")
+theme_override_colors/font_color = Color(0.825188, 0.781992, 0.19848, 1)
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="CoinImg" type="TextureRect" parent="VBoxContainer/Panel/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_fs14c")
+expand_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="NextLvlBtn" type="Button" parent="VBoxContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_4dte0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kw3fv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77hbp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_irg1d")
+text = "Next Level"
+
+[node name="MainMenuBtn" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_4dte0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kw3fv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_77hbp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_irg1d")
+text = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/Buttons/NextLvlBtn" to="." method="_on_next_lvl_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
