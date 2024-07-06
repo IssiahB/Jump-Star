@@ -12,7 +12,8 @@ var player_properties: PlayerProperties = PlayerProperties.new()
 
 @onready var worlds: Array[World] = [
 	load("res://resources/worlds/World_1.tres"),
-	load("res://resources/worlds/World_2.tres")
+	load("res://resources/worlds/World_2.tres"),
+	load("res://resources/worlds/World_3.tres"),
 ]
 
 func _ready():

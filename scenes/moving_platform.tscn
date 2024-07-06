@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://delfjqdvr8bjy"]
+
+[ext_resource type="Script" path="res://scripts/moving_platform.gd" id="1_ieu4q"]
+[ext_resource type="Texture2D" uid="uid://dl2mxdw8f4one" path="res://assets/graphics/tilesets/Tileset.png" id="1_rjjcw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6qtb"]
+size = Vector2(28, 26)
+
+[node name="MovingPlatform" type="CharacterBody2D"]
+script = ExtResource("1_ieu4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rjjcw")
+region_enabled = true
+region_rect = Rect2(128.394, 55.4954, 31.557, 30.0855)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l6qtb")
+
+[node name="HoldPosTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="HoldPosTimer" to="." method="_on_hold_pos_timer_timeout"]

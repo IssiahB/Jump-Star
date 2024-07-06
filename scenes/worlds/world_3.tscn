@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqdmaj7lxp5m5"]
+
+[ext_resource type="PackedScene" uid="uid://c7steln1ukqmd" path="res://scenes/worlds/base_world.tscn" id="1_qeg7s"]
+[ext_resource type="Texture2D" uid="uid://7awn51a75mj6" path="res://assets/graphics/backgrounds/Dark_forest.png" id="2_3egk8"]
+
+[node name="World3" instance=ExtResource("1_qeg7s")]
+
+[node name="Background" parent="." index="2"]
+texture = ExtResource("2_3egk8")

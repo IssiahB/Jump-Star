@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="World" load_steps=3 format=3 uid="uid://dxim3a3f2tjyg"]
+
+[ext_resource type="Script" path="res://scripts/worlds/world.gd" id="1_xia4h"]
+[ext_resource type="PackedScene" uid="uid://bqdmaj7lxp5m5" path="res://scenes/worlds/world_3.tscn" id="2_sd1fp"]
+
+[resource]
+script = ExtResource("1_xia4h")
+name = &"World 3"
+status = 0
+world_scene = ExtResource("2_sd1fp")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh8nyrukne7c0"]
+
+[ext_resource type="Texture2D" uid="uid://c03obvuj46f62" path="res://assets/graphics/tilesets/Chest.png" id="1_2cv38"]
+[ext_resource type="Script" path="res://scripts/chest.gd" id="1_hs0le"]
+[ext_resource type="Texture2D" uid="uid://5fpmjxaj3jky" path="res://assets/graphics/UI/E-Key.png" id="2_uhofr"]
+[ext_resource type="PackedScene" uid="uid://cbmr6rvsie0ox" path="res://scenes/components/interaction_component.tscn" id="4_7cw5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ab1u7"]
+size = Vector2(96, 45)
+
+[node name="Chest" type="StaticBody2D"]
+script = ExtResource("1_hs0le")
+
+[node name="InteractionComponent" parent="." node_paths=PackedStringArray("interaction_area", "interaction_dialog") instance=ExtResource("4_7cw5u")]
+interaction_area = NodePath("InteractArea")
+interaction_dialog = NodePath("../InteractDialog")
+
+[node name="InteractArea" type="Area2D" parent="InteractionComponent"]
+collision_layer = 64
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponent/InteractArea"]
+position = Vector2(0, -12.5)
+shape = SubResource("RectangleShape2D_ab1u7")
+
+[node name="InteractDialog" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -35)
+texture = ExtResource("2_uhofr")
+
+[node name="ChestSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_2cv38")
+region_enabled = true
+region_rect = Rect2(8, 10, 17, 19)
+
+[connection signal="interaction_requested" from="InteractionComponent" to="." method="_on_interaction"]

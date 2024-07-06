@@ -9,7 +9,7 @@ var main_menu: PackedScene = preload("res://scenes/menus/main_menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.fade_in(self)
+	#Global.fade_in(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Player.taken_damage.connect(update_hub)
 	$Player.collect_item.connect(handle_item_pickup)
