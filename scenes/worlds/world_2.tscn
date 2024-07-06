@@ -30,11 +30,11 @@ path = NodePath("../Path2D")
 position = Vector2(1064, 357)
 curve = SubResource("Curve2D_r4t7u")
 
-[node name="Chest" parent="." index="5" instance=ExtResource("5_4wu70")]
-position = Vector2(403, 465)
-
-[node name="PortalDoor" parent="." index="6"]
+[node name="PortalDoor" parent="." index="5"]
 position = Vector2(1822, 390)
+
+[node name="Chest" parent="Chests" index="0" instance=ExtResource("5_4wu70")]
+position = Vector2(403, 465)
 
 [node name="BlobEnemy" parent="Enemies" index="0" instance=ExtResource("3_dsdbo")]
 position = Vector2(675, 436)

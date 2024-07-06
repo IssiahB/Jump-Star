@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgmuubc1cyweq"]
+
+[ext_resource type="Texture2D" uid="uid://bap6a1cl3q37y" path="res://assets/graphics/enemies/Enemy_Ball.png" id="1_mad2i"]
+[ext_resource type="Script" path="res://scripts/enemies/ball_enemy.gd" id="1_wa03w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2by0a"]
+radius = 17.0294
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s28mw"]
+radius = 21.0238
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15juj"]
+size = Vector2(94, 680)
+
+[node name="BallEnemy" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 19
+script = ExtResource("1_wa03w")
+
+[node name="BallSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_mad2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2by0a")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_s28mw")
+
+[node name="NoticeArea" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
+position = Vector2(0, 330)
+shape = SubResource("RectangleShape2D_15juj")
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_entered"]
+[connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_entered"]

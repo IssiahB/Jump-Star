@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name BaseEnemy
 
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 # The maximum amount of health this enemy can have
 @export var max_health: int = 100
 

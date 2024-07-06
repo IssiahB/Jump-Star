@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+# TODO change store button to retry button
+
 signal resume_pressed
 signal store_pressed
 signal main_menu_pressed

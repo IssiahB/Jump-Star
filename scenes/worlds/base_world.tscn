@@ -629,6 +629,8 @@ metadata/_edit_lock_ = true
 [node name="PortalDoor" parent="." instance=ExtResource("5_p52hf")]
 position = Vector2(489, 482)
 
+[node name="Chests" type="Node2D" parent="."]
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("6_gnypk")]

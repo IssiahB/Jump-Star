@@ -1,7 +1,5 @@
 extends BaseEnemy
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 var facing_right: bool = true
 var direction: Vector2 = Vector2.ZERO
 

@@ -1,9 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqdmaj7lxp5m5"]
+[gd_scene load_steps=7 format=3 uid="uid://bqdmaj7lxp5m5"]
 
 [ext_resource type="PackedScene" uid="uid://c7steln1ukqmd" path="res://scenes/worlds/base_world.tscn" id="1_qeg7s"]
 [ext_resource type="Texture2D" uid="uid://7awn51a75mj6" path="res://assets/graphics/backgrounds/Dark_forest.png" id="2_3egk8"]
+[ext_resource type="PackedScene" uid="uid://delfjqdvr8bjy" path="res://scenes/moving_platform.tscn" id="3_7llnw"]
+[ext_resource type="PackedScene" uid="uid://bgmuubc1cyweq" path="res://scenes/ball_enemy.tscn" id="4_c8w55"]
+
+[sub_resource type="Curve2D" id="Curve2D_4txk8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1072, 453, 0, 0, 0, 0, 1277, 322)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_h671p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1563, 322, 0, 0, 0, 0, 1313, 322)
+}
+point_count = 2
 
 [node name="World3" instance=ExtResource("1_qeg7s")]
 
 [node name="Background" parent="." index="2"]
 texture = ExtResource("2_3egk8")
+
+[node name="Ground" parent="." index="3"]
+layer_0/tile_data = PackedInt32Array(983053, 262144, 5, 983058, 327680, 5)
+layer_1/tile_data = PackedInt32Array(983049, 327680, 1, 983050, 393216, 1, 983051, 393216, 1, 983052, 393216, 1, 983053, 393216, 1, 983054, 393216, 1, 983055, 393216, 1, 983056, 393216, 1, 983057, 393216, 1, 983058, 458752, 1, 1048594, 458752, 2, 1114130, 458752, 3, 1179666, 458752, 4, 1179665, 393216, 4, 1179664, 393216, 4, 1179663, 393216, 4, 1179662, 393216, 4, 1179661, 393216, 4, 1179660, 393216, 4, 1179659, 393216, 4, 1179658, 393216, 4, 1179657, 327680, 4, 1048585, 327680, 2, 1114121, 327680, 3, 1048586, 393216, 2, 1048587, 393216, 2, 1048588, 393216, 2, 1048589, 393216, 2, 1048590, 393216, 2, 1048591, 393216, 2, 1048592, 393216, 2, 1048593, 393216, 2, 1114122, 393216, 3, 1114123, 393216, 3, 1114124, 393216, 3, 1114125, 393216, 3, 1114126, 393216, 3, 1114127, 393216, 3, 1114128, 393216, 3, 1114129, 393216, 3, 983062, 327680, 1, 983063, 393216, 1, 983064, 393216, 1, 983065, 393216, 1, 983066, 458752, 1, 1048598, 327680, 2, 1048602, 458752, 2, 1048599, 393216, 2, 1048600, 393216, 2, 1048601, 393216, 2, 1114134, 327680, 4, 1114135, 393216, 4, 1114136, 393216, 4, 1114137, 393216, 4, 1114138, 458752, 4, 917533, 524288, 1, 983069, 524288, 2, 1048605, 524288, 4, 851999, 589824, 1, 917535, 589824, 2, 655410, 327680, 1, 655411, 393216, 1, 655412, 393216, 1, 655413, 393216, 1, 655414, 393216, 1, 655415, 393216, 1, 655416, 393216, 1, 655417, 458752, 1, 720953, 458752, 2, 786489, 458752, 3, 852025, 458752, 4, 852024, 393216, 4, 852023, 393216, 4, 852022, 393216, 4, 852021, 393216, 4, 852020, 393216, 4, 852019, 393216, 4, 852018, 327680, 4, 786482, 327680, 3, 720946, 327680, 2, 720947, 393216, 2, 720948, 393216, 2, 720949, 393216, 2, 720950, 393216, 2, 720951, 393216, 2, 720952, 393216, 2, 786483, 393216, 3, 786484, 393216, 3, 786485, 393216, 3, 786486, 393216, 3, 786487, 393216, 3, 786488, 393216, 3)
+
+[node name="MovingPlatform" parent="Platforms" index="0" node_paths=PackedStringArray("path") instance=ExtResource("3_7llnw")]
+position = Vector2(1072, 453)
+path = NodePath("../LeftPath")
+
+[node name="MovingPlatform2" parent="Platforms" index="1" node_paths=PackedStringArray("path") instance=ExtResource("3_7llnw")]
+position = Vector2(1561, 321)
+path = NodePath("../RightPath")
+
+[node name="LeftPath" type="Path2D" parent="Platforms" index="2"]
+curve = SubResource("Curve2D_4txk8")
+
+[node name="RightPath" type="Path2D" parent="Platforms" index="3"]
+curve = SubResource("Curve2D_h671p")
+
+[node name="PortalDoor" parent="." index="5"]
+position = Vector2(429, 318)
+
+[node name="BallEnemy" parent="Enemies" index="0" instance=ExtResource("4_c8w55")]
+position = Vector2(792, 25)
