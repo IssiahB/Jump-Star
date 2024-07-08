@@ -208,3 +208,9 @@ current = true
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_0luc2")
+
+[node name="CanJumpTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="CanJumpTimer" to="." method="_on_can_jump_timer_timeout"]

@@ -63,6 +63,7 @@ func select_next_world() -> World:
 				_next_world = worlds[i+1]
 			else:
 				_next_world = null
+			break
 				
 	return _current_world
 	

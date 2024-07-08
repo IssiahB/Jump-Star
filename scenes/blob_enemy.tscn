@@ -160,12 +160,6 @@ scale = Vector2(1.5, 1.5)
 collision_layer = 32
 collision_mask = 55
 script = ExtResource("1_k4gcm")
-attack_time = null
-max_health = null
-max_speed = null
-acceleration = null
-deceleration = null
-damage_amount = null
 
 [node name="BlobSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)

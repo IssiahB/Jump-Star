@@ -7,9 +7,8 @@ var death_menu: PackedScene = preload("res://scenes/menus/death_menu.tscn")
 var victory_menu: PackedScene = preload("res://scenes/menus/victory_menu.tscn")
 var main_menu: PackedScene = preload("res://scenes/menus/main_menu.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	#Global.fade_in(self)
+	Global.fade_in(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Player.taken_damage.connect(update_hub)
 	$Player.collect_item.connect(handle_item_pickup)
@@ -66,7 +65,8 @@ func _on_pause_resume_pressed():
 	Global.play_btn_sound()
 	$PauseMenu.hide()
 
-
-func _on_pause_store_pressed():
+func _on_pause_retry_pressed():
 	Global.play_btn_sound()
-	pass # Replace with function body.
+	await Global.fade_out(self)
+	$PauseMenu.hide()
+	get_tree().change_scene_to_packed(Global._current_world.world_scene)

@@ -35,12 +35,12 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("1_k2v3k")
 text = "Resume"
 
-[node name="StoreBtn" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
+[node name="RetryBtn" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
 layout_mode = 2
 focus_mode = 0
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_k2v3k")
-text = "Store"
+text = "Retry"
 
 [node name="MainMenuBtn" type="Button" parent="CenterContainer/VBoxContainer/Buttons"]
 layout_mode = 2
@@ -50,5 +50,5 @@ theme = ExtResource("1_k2v3k")
 text = "Main Menu"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/ResumeBtn" to="." method="_on_resume_btn_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/StoreBtn" to="." method="_on_store_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/RetryBtn" to="." method="_on_retry_btn_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Buttons/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]

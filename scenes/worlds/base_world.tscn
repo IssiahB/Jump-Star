@@ -656,5 +656,5 @@ shape = SubResource("RectangleShape2D_7dn2d")
 
 [connection signal="main_menu_pressed" from="PauseMenu" to="." method="_on_pause_main_menu_pressed"]
 [connection signal="resume_pressed" from="PauseMenu" to="." method="_on_pause_resume_pressed"]
-[connection signal="store_pressed" from="PauseMenu" to="." method="_on_pause_store_pressed"]
+[connection signal="retry_pressed" from="PauseMenu" to="." method="_on_pause_retry_pressed"]
 [connection signal="body_entered" from="FallZone" to="." method="_on_fall_zone_entered"]

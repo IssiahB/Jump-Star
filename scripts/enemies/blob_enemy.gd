@@ -10,7 +10,7 @@ var should_deal_damage: bool = false
 var player_noticed: bool = false
 
 ## The time in seconds between damage dealt to player
-@export var attack_time: float = .8
+@export var attack_time: float = 0.8
 
 func _ready():
 	pass
@@ -38,10 +38,10 @@ func follow_player():
 		
 func look_in_direction():
 	if sign(direction).x < 0 and facing_right:
-		scale.x = -scale.x
+		$BlobSprite.scale.x = -$BlobSprite.scale.x
 		facing_right = false
 	elif sign(direction).x > 0 and not facing_right:
-		scale.x = -scale.x
+		$BlobSprite.scale.x = -$BlobSprite.scale.x
 		facing_right = true
 		
 func play_animations():

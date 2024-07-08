@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqdmaj7lxp5m5"]
+[gd_scene load_steps=10 format=3 uid="uid://bqdmaj7lxp5m5"]
 
 [ext_resource type="PackedScene" uid="uid://c7steln1ukqmd" path="res://scenes/worlds/base_world.tscn" id="1_qeg7s"]
 [ext_resource type="Texture2D" uid="uid://7awn51a75mj6" path="res://assets/graphics/backgrounds/Dark_forest.png" id="2_3egk8"]
 [ext_resource type="PackedScene" uid="uid://delfjqdvr8bjy" path="res://scenes/moving_platform.tscn" id="3_7llnw"]
+[ext_resource type="PackedScene" uid="uid://dh8nyrukne7c0" path="res://scenes/chest.tscn" id="4_avc3t"]
 [ext_resource type="PackedScene" uid="uid://bgmuubc1cyweq" path="res://scenes/ball_enemy.tscn" id="4_c8w55"]
+[ext_resource type="PackedScene" uid="uid://ddyuhjpu2kagg" path="res://scenes/blob_enemy.tscn" id="6_xvwwr"]
+[ext_resource type="PackedScene" uid="uid://0j0joludxmct" path="res://scenes/coin.tscn" id="7_we34n"]
 
 [sub_resource type="Curve2D" id="Curve2D_4txk8"]
 _data = {
@@ -41,7 +44,45 @@ curve = SubResource("Curve2D_4txk8")
 curve = SubResource("Curve2D_h671p")
 
 [node name="PortalDoor" parent="." index="5"]
-position = Vector2(429, 318)
+position = Vector2(1819, 327)
+
+[node name="Chest" parent="Chests" index="0" instance=ExtResource("4_avc3t")]
+position = Vector2(551, 499)
+coin_contained = 10
+
+[node name="Chest2" parent="Chests" index="1" instance=ExtResource("4_avc3t")]
+position = Vector2(326, 499)
+coin_contained = 10
 
 [node name="BallEnemy" parent="Enemies" index="0" instance=ExtResource("4_c8w55")]
-position = Vector2(792, 25)
+position = Vector2(946, 42)
+
+[node name="BallEnemy2" parent="Enemies" index="1" instance=ExtResource("4_c8w55")]
+position = Vector2(1173, 3)
+
+[node name="BallEnemy3" parent="Enemies" index="2" instance=ExtResource("4_c8w55")]
+position = Vector2(1426, -13)
+
+[node name="BlobEnemy" parent="Enemies" index="3" instance=ExtResource("6_xvwwr")]
+position = Vector2(784, 495)
+
+[node name="Coin" parent="Coins" index="0" instance=ExtResource("7_we34n")]
+position = Vector2(737, 486)
+
+[node name="Coin2" parent="Coins" index="1" instance=ExtResource("7_we34n")]
+position = Vector2(844, 484)
+
+[node name="Coin3" parent="Coins" index="2" instance=ExtResource("7_we34n")]
+position = Vector2(943, 451)
+
+[node name="Coin4" parent="Coins" index="3" instance=ExtResource("7_we34n")]
+position = Vector2(1120, 382)
+
+[node name="Coin5" parent="Coins" index="4" instance=ExtResource("7_we34n")]
+position = Vector2(1230, 314)
+
+[node name="Coin6" parent="Coins" index="5" instance=ExtResource("7_we34n")]
+position = Vector2(1366, 292)
+
+[node name="Coin7" parent="Coins" index="6" instance=ExtResource("7_we34n")]
+position = Vector2(1517, 289)
